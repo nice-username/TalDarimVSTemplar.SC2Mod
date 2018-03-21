@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                                                             -->
+    <!--                  Buildings / Construction                   -->
+    <!--                                                             -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                                                             -->
+    <!--                          Global                             -->
+    <!--                                                             -->
+    <CActorModel id="WarpInVoid">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorModel id="ProtossBuildingBirth">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorModel id="ProtossBuildingBirthLarge">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorModel id="ProtossBuildingBirthSmall">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorModel id="PlaceholderModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName NexusPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName AssimilatorPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName GatewayPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName ForgePlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName PhotonCannonPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName CyberneticsCorePlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName RoboticsFacilityPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName RoboticsSupportBayPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName StargatePlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName FleetBeaconPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName FleetBeaconPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName TwilightCouncilPlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName DarkShrinePlacement" Send="SetTintColor 255,0,0"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName TemplarArchivesPlacement" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorModel id="PylonPlaceholderModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                           Nexus                             -->
+    <!--                                                             -->
+    <CActorUnit id="Nexus">
+        <On Terms="Signal.*.Taldarim; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap NexusTaldarim"/>
+        <On Terms="Signal.*.Taldarim; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Nexus" Send="ModelSwap NexusTaldarim"/>
+        <On Terms="ModelSwap; ModelName NexusTaldarim" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim; ModelName NexusBirth" Send="SetTintColor 255,0,0"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="NexusTaldarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorModel id="TimeWarpLaunch">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                           Pylon                             -->
+    <!--                                                             -->
+    <CActorUnit id="Pylon">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Pylon" Send="ModelSwap PylonTaldarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Pylon" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim; ModelName PylonBirth" Send="SetTintColor 255,0,0"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="PylonTaldarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorAction id="MothershipCoreWeaponAttack">
+        <ImpactModel value="MothershipCoreWeaponAttackImpactTalDarim"/>
+    </CActorAction>
+    <CActorMissile id="MothershipCoreWeaponAttackMissile">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorMissile>
+    <CActorModel id="MothershipCoreWeaponAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                        Assimilator                          -->
+    <!--                                                             -->
+    <CActorUnit id="Assimilator">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Assimilator" Send="ModelSwap AssimilatorTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="AssimilatorTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                    Gateway / Warp Gate                      -->
+    <!--                                                             -->
+    <CActorUnit id="Gateway">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Gateway" Send="ModelSwap GatewayTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="GatewayTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorUnit id="WarpGate">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1" Send="ModelSwap WarpGateTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="WarpGateTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                          Forge                              -->
+    <!--                                                             -->
+    <CActorUnit id="Forge">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Forge" Send="ModelSwap ForgeTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="ForgeTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                      Photon Cannon                          -->
+    <!--                                                             -->
+    <CActorUnit id="PhotonCannon">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName PhotonCannon" Send="ModelSwap PhotonCannonTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="PhotonCannonTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorAction id="PhotonCannonAttack">
+        <ImpactModel value="PhotonCannonAttackImpactTalDarim"/>
+    </CActorAction>
+    <CActorModel id="PhotonCannonAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorMissile id="PhotonCannonAttackMissile">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorMissile>
+    <!--                                                             -->
+    <!--                     Cybernetics Core                        -->
+    <!--                                                             -->
+    <CActorUnit id="CyberneticsCore">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName CyberneticsCore" Send="ModelSwap CyberneticsCoreTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="CyberneticsCoreTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                    Robotics Facility                        -->
+    <!--                                                             -->
+    <CActorUnit id="RoboticsFacility">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName RoboticsFacility" Send="ModelSwap RoboticsFacilityTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="RoboticsFacilityTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                       Robotics Bay                          -->
+    <!--                                                             -->
+    <CActorUnit id="RoboticsBay">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName RoboticsSupportBay" Send="ModelSwap RoboticsBayTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="RoboticsBayTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                         Stargate                            -->
+    <!--                                                             -->
+    <CActorUnit id="Stargate">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Stargate" Send="ModelSwap StargateTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="StargateTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                       Fleet Beacon                          -->
+    <!--                                                             -->
+    <CActorUnit id="FleetBeacon">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName FleetBeacon" Send="ModelSwap FleetBeaconTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="FleetBeaconTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                     Twilight Council                        -->
+    <!--                                                             -->
+    <CActorUnit id="TwilightCouncil">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap TwilightCouncilTalDarim"/>
+        <On Terms="ModelSwap" Send="TextureSelectById TwilightCouncilDarkDiffuse"/>
+        <On Terms="ModelSwap" Send="TextureSelectById TwilightCouncilDarkSpecular"/>
+        <On Terms="ModelSwap" Send="TextureSelectById TwilightCouncilDarkEmissive"/>
+        <On Terms="ModelSwap" Send="TextureSelectById PulseGreen"/>
+        <On Terms="ModelSwap" Send="TextureSelectById GradRaysGreen"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                        Dark Shrine                          -->
+    <!--                                                             -->
+    <CActorUnit id="DarkShrine">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap DarkShrineTalDarim"/>
+        <On Terms="ModelSwap" Send="TextureSelectById DarkShrineDarkDiffuse"/>
+        <On Terms="ModelSwap" Send="TextureSelectById DarkShrineDarkSpecular"/>
+        <On Terms="ModelSwap" Send="TextureSelectById DarkShrineDarkEmissive"/>
+        <On Terms="ModelSwap" Send="TextureSelectById GradRaysGreen"/>
+        <On Terms="ModelSwap" Send="TextureSelectById GlowGreen"/>
+        <On Terms="ModelSwap" Send="TextureSelectById PylonDarkDiffuse"/>
+        <On Terms="ModelSwap" Send="TextureSelectById PylonDarkSpecular"/>
+        <On Terms="ModelSwap" Send="TextureSelectById PylonDarkEmissive"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                     Templar Archive                         -->
+    <!--                                                             -->
+    <CActorUnit id="TemplarArchive">
+        <On Terms="UnitBirth.*.Normal; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap TemplarArchiveTalDarim"/>
+        <On Terms="ModelSwap" Send="TextureSelectById TemplarArchivesDarkDiffuse"/>
+        <On Terms="ModelSwap" Send="TextureSelectById TemplarArchivesDarkSpecular"/>
+        <On Terms="ModelSwap" Send="TextureSelectById TemplarArchivesDarkEmissive"/>
+        <On Terms="ModelSwap" Send="TextureSelectById GlowGreen"/>
+        <On Terms="ModelSwap" Send="TextureSelectById GradRaysGreen"/>
+    </CActorUnit>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                                                             -->
+    <!--                Units / Weapons / Abilties                   -->
+    <!--                                                             -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--                         Probe                               -->
+    <!--                                                             -->
+    <CActorUnit id="Probe">
+        <On Terms="Signal.*.Taldarim; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="Signal.*.Taldarim; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap ProbeTaldarim"/>
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Probe" Send="ModelSwap ProbeTaldarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="ProbeTaldarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                         Zealot                              -->
+    <!--                                                             -->
+    <CActorUnit id="Zealot">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="StatusSet Templar 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Zealot" Send="ModelSwap ZealotTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName ZealotWarpIn" Send="ModelSwap ZealotWarpInTalDarim"/>
+        <On Terms="ModelSwap; ModelName ZealotWarpInTalDarim" Send="SetTintColor 255,0,0"/>
+        <On Terms="ModelSwap; ModelName ZealotTalDarim" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="StatusSet.*.Templar; IsStatus Templar 1; ModelName Zealot" Send="ModelSwap ZealotTemplar"/>
+        <On Terms="StatusSet.*.Templar; IsStatus Templar 1; ModelName ZealotWarpIn" Send="ModelSwap ZealotWarpInTemplar"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="ZealotTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                         Stalker                             -->
+    <!--                                                             -->
+    <CActorUnit id="Stalker">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Stalker" Send="ModelSwap StalkerTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName StalkerWarpIn" Send="ModelSwap StalkerWarpInTalDarim"/>
+        <On Terms="ModelSwap; ModelName StalkerWarpInTalDarim" Send="SetTintColor 255,0,0"/>
+        <On Terms="ModelSwap; ModelName StalkerTalDarim" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="StalkerTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorAction id="StalkerAttack">
+        <ImpactModel value="StalkerAttackImpact"/>
+    </CActorAction>
+    <CActorMissile id="StalkerAttackMissile">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap StalkerWeaponTalDarim"/>
+    </CActorMissile>
+    <CActorModel id="StalkerAttackImpact" parent="GenericAttackImpactModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="SetTintColor 50,252,0"/>
+    </CActorModel>
+    <CActorModel id="StalkerAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="SetTintColor 50,252,0"/>
+    </CActorModel>
+    <CActorModel id="BlinkOriginModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap BlinkOriginModelTalDarim"/>
+    </CActorModel>
+    <CActorModel id="BlinkStopModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap BlinkStopModelTalDarim"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                          Sentry                             -->
+    <!--                                                             -->
+    <CActorUnit id="Sentry">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Sentry" Send="ModelSwap SentryTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName SentryWarpIn" Send="ModelSwap SentryWarpInTalDarim"/>
+        <On Terms="ModelSwap; ModelName SentryWarpInTalDarim" Send="SetTintColor 255,0,0"/>
+        <On Terms="ModelSwap; ModelName SentryTalDarim" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="SentryTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorUnit id="ForceField">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorUnit>
+    <!--
+    <CActorModel id="GuardianShield">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    -->
+    <CActorBeamSimple id="SentryAttackBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap SentryAttackBeamTalDarim"/>
+    </CActorBeamSimple>
+    <!--                                                             -->
+    <!--                          Adept                              -->
+    <!--                                                             -->
+    <CActorUnit id="Adept">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Adept" Send="ModelSwap AdeptPurifier"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName AdeptWarpIn" Send="SetTintColor 255,0,0"/>
+        <On Terms="ModelSwap; IsStatus TalDarim 1; ModelName AdeptPurifier" Send="SetTintColor 128,64,64 1.000000"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName AdeptPurifier" Send="SetTintColor 128,64,64 1.000000"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="AdeptPurifierDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorMissile id="AdeptAttackMissile">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap AdeptWeaponTalDarim"/>
+    </CActorMissile>
+    <CActorMissile id="AdeptUpgradeAttackMissile">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap AdeptWeaponTalDarim"/>
+    </CActorMissile>
+    <CActorMissile id="AdeptPiercingAttackMissile">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap AdeptWeaponTalDarim"/>
+    </CActorMissile>
+    <!--                                                             -->
+    <!--                      High Templar                           -->
+    <!--                                                             -->
+    <CActorUnit id="HighTemplar">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName HighTemplar" Send="ModelSwap HighTemplarTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName HighTemplarWarpIn" Send="ModelSwap HighTemplarWarpInTalDarim"/>
+        <On Terms="ModelSwap; ModelName HighTemplarWarpInTalDarim" Send="SetTintColor 255,0,0"/>
+        <On Terms="ModelSwap; ModelName HighTemplarTalDarim" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="HighTemplarTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorModel id="HighTemplarPsiStormModel">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="HighTemplarPsiStormModelTalDarim"/>
+        </ModelAspectSets>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                       Dark Templar                          -->
+    <!--                                                             -->
+    <CActorUnit id="DarkTemplar">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName DarkTemplar" Send="ModelSwap DarkTemplarTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName DarkTemplarWarpIn" Send="ModelSwap DarkTemplarWarpInTalDarim"/>
+        <On Terms="ModelSwap; ModelName DarkTemplarWarpIn" Send="SetTintColor 255,0,0"/>
+        <On Terms="ModelSwap; ModelName DarkTemplarTalDarim" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="DarkTemplarTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                           Archon                            -->
+    <!--                                                             -->
+    <CActorUnit id="Archon">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="ArchonTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+        <On Terms="UnitDeathCustomize; ModelName ArchonTalDarim" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="ArchonTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorBeamSimple id="ArchonAttackBeam">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="ArchonAttackBeamTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorBeamSimple>
+    <!--                                                             -->
+    <!--                          Immortal                           -->
+    <!--                                                             -->
+    <CActorUnit id="Immortal">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="ImmortalTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="ImmortalTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorAction id="ImmortalAttack">
+        <ImpactModel value="ImmortalAttackImpactTalDarim"/>
+        <On Terms="Signal.*.TalDarimImpact" Send="RefSetFromMsg ::actor.sender ::Sender"/>
+        <On Terms="Signal.*.TalDarimImpact; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Target="::actor.sender" Send="Signal TalDarimImpactSwap"/>
+    </CActorAction>
+    <CActorModel id="ImmortalAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <On Terms="ActorCreation" Target="::Creator" Send="Signal TalDarimImpact"/>
+        <On Terms="Signal.*.TalDarimImpactSwap" Send="ModelSwap ImmortalAttackImpactTalDarim"/>
+    </CActorModel>
+    <CActorModel id="ImmortalTalDarimWeaponAttackLaunchModelLeft" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.PhaseDisruptors.Start; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeaponLeft"/>
+        <Model value="ImmortalTaldarimWeaponAttackLaunchModel"/>
+    </CActorModel>
+    <CActorModel id="ImmortalTalDarimWeaponAttackLaunchModelRight" parent="ModelAnimationStyleOneShot">
+        <Model value="ImmortalTaldarimWeaponAttackLaunchModel"/>
+        <On Terms="Effect.PhaseDisruptors.Start; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeaponRight"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                          Observer                           -->
+    <!--                                                             -->
+    <CActorUnit id="Observer">
+        <On Terms="ModelSwap; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Observer" Send="ModelSwap ObserverTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName ObserverWarpIn" Send="ModelSwap ObserverWarpInTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="ObserverTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                         Warp Prism                          -->
+    <!--                                                             -->
+    <CActorUnit id="WarpPrism">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="ModelSwap; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName WarpPrism" Send="ModelSwap WarpPrismTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName WarpPrismWarpIn" Send="ModelSwap WarpPrismWarpInTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="WarpPrismTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorUnit id="WarpPrismPhasing">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName WarpPrismPhasing" Send="ModelSwap WarpPrismPhasingTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="WarpPrismPhasingTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                         Colossus                            -->
+    <!--                                                             -->
+    <CActorUnit id="Colossus">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Colossus" Send="ModelSwap Colossus_Taldarim_MP"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="Colossus_Taldarim_MP_Death" Name="Variation11"/>
+    </CActorUnit>
+    <CActorBeamSimple id="ColossusAttackBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap ColossusAttackBeamTalDarim"/>
+    </CActorBeamSimple>
+    <CActorBeamSimple id="ColossusAttackBeamReverse">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap ColossusAttackBeamTalDarim"/>
+    </CActorBeamSimple>
+    <CActorModel id="ColossusAttackBeamImpact">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1" Send="ModelSwap ColossusAttackBeamImpactTalDarim"/>
+    </CActorModel>
+    <CActorModel id="ColossusAttackBeamImpactReverse">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1" Send="ModelSwap ColossusAttackBeamImpactTalDarim"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                         Disruptor                           -->
+    <!--                                                             -->
+    <CActorUnit id="Disruptor">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="ModelSwap DisruptorTalDarim"/>
+    </CActorUnit>
+    <!--                                                             -->
+    <!--                          Phoenix                            -->
+    <!--                                                             -->
+    <CActorUnit id="Phoenix">
+        <ModelAspectSets TriggerModel="Phoenix">
+            <Aspects Person="Observer" Test="Message" Model="PhoenixTalDarim"/>
+        </ModelAspectSets>
+        <ModelAspectSets TriggerModel="PhoenixWarpIn">
+            <Aspects Person="Observer" Test="Message" Model="PhoenixWarpInTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="ModelSwap; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName PhoenixWarpInStargate" Send="ModelSwap PhoenixWarpInStargateTalDarim"/>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="PhoenixTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorModel id="PhoenixWarpInStargate" parent="ModelAddition">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="PhoenixWarpInStargateTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorMissile id="PhoenixAirAttackMissile">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="IonCannonsWeaponTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorMissile>
+    <CActorAction id="PhoenixAirAttackLeft">
+        <ImpactModel value="PhoenixAirAttackImpactTalDarim"/>
+    </CActorAction>
+    <CActorAction id="PhoenixAirAttackRight">
+        <ImpactModel value="PhoenixAirAttackImpactTalDarim"/>
+    </CActorAction>
+    <CActorModel id="PhoenixAirAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="PhoenixAirAttackImpactTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTemplar" Send="ModelAspectConfirm"/>
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                         Void Ray                            -->
+    <!--                                                             -->
+    <CActorUnit id="VoidRay">
+        <On Terms="ModelSwap; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName VoidRay" Send="ModelSwap VoidRayTaldarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName VoidRayWarpInStargate" Send="ModelSwap VoidRayWarpInStargateTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="VoidRayTaldarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorModel id="VoidRayWarpInStargate" parent="ModelAddition">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap VoidRayWarpInStargateTalDarim"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorBeamSimple id="VoidRaySwarmAttackBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorBeamSimple>
+    <CActorBeamSimple id="VoidRayCenterBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorBeamSimple>
+    <CActorModel id="VoidRayEnhancementAddition01">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorModel id="VoidRayEnhancementAddition02">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorModel id="VoidRayEnhancementAddition03">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                           Oracle                            -->
+    <!--                                                             -->
+    <CActorUnit id="Oracle">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Oracle" Send="SetTintColor 128,64,64"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName OracleWarpIn" Send="SetTintColor 128,64,64"/>
+    </CActorUnit>
+    <CActorBeamSimple id="OracleWeaponAttackBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorBeamSimple>
+    <CActorUnit id="OracleStasisTrap">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorUnit>
+    <CActorBeamSimple id="OracleStasisTrapBuildBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorBeamSimple>
+    <CActorModel id="OracleStasisTrapExplosion">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                    Carrier / Interceptor                    -->
+    <!--                                                             -->
+    <CActorUnit id="Carrier">
+        <On Terms="ModelSwap; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Carrier" Send="ModelSwap CarrierTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName CarrierWarpInStargate" Send="ModelSwap CarrierWarpInStargateTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="CarrierTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorModel id="CarrierWarpInStargate" parent="ModelAddition">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="CarrierWarpInStargateTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorUnit id="Interceptor">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Interceptor" Send="ModelSwap InterceptorTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="InterceptorTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorBeamSimple id="InterceptorAttackBeam">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="InterceptorAttackBeamTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorBeamSimple>
+    <CActorModel id="InterceptorAttackImpactModel" parent="GenericAttackImpactModel">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="InterceptorAttackImpactTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                          Tempest                            -->
+    <!--                                                             -->
+    <CActorUnit id="Tempest">
+        <On Terms="ModelSwap; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Tempest" Send="ModelSwap TempestTalDarim"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName TempestWarpInStargate" Send="ModelSwap TempestWarpInStargateTalDarim"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="TempestTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorModel id="TempestWarpInStargate" parent="ModelAddition">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="ModelSwap TempestWarpInStargateTalDarim"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorModel id="StormSphereAttachment">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1" Send="ModelSwap StormSphereAttachmentTalDarim"/>
+    </CActorModel>
+    <CActorAction id="TempestAttack">
+        <ImpactModel value="TempestAttackImpactTalDarim"/>
+    </CActorAction>
+    <CActorMissile id="TempestAttackMissile">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="TempestWeaponTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorMissile>
+    <CActorModel id="TempestAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="TempestAttackImpactTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorModel>
+    <CActorAction id="TempestAttackGround">
+        <ImpactModel value="TempestGroundAttackImpactTalDarim"/>
+    </CActorAction>
+    <CActorMissile id="TempestAttackGroundMissile">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="TempestWeaponGroundTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorMissile>
+    <CActorModel id="TempestGroundAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <ModelAspectSets>
+            <Aspects Person="Observer" Test="Message" Model="TempestGroundAttackImpactTalDarim"/>
+        </ModelAspectSets>
+        <On Terms="ModelAspectTest; ValidatePlayer FactionTaldarim" Send="ModelAspectConfirm"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                        Mothership Core                      -->
+    <!--                                                             -->
+    <CActorUnit id="MothershipCore">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,64,64"/>
+    </CActorUnit>
+    <CActorModel id="MothershipCoreMorphAddition">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <CActorAction id="MothershipCoreAttack">
+        <ImpactModel value="MothershipCoreAttackImpactTalDarim"/>
+    </CActorAction>
+    <CActorMissile id="MothershipCoreAttackMissile">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorMissile>
+    <CActorModel id="MothershipCoreAttackImpactTalDarim" parent="GenericAttackImpactModel">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTemplar" Send="SetTintColor 255,0,0"/>
+    </CActorModel>
+    <!--                                                             -->
+    <!--                           Mothership                        -->
+    <!--                                                             -->
+    <CActorUnit id="Mothership">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="StatusSet TalDarim 1"/>
+        <On Terms="StatusSet.*.TalDarim; IsStatus TalDarim 1; ModelName Mothership" Send="ModelSwap MothershipTalDarim"/>
+        <On Terms="ModelSwap; ModelName MothershipTalDarim" Send="SetTintColor 255,255,255 1.000000"/>
+        <On Terms="UnitDeathCustomize; IsStatus TalDarim 1" Send="DeathCustomize Variation11"/>
+        <DeathCustoms ModelLink="MothershipTalDarimDeath" Name="Variation11"/>
+    </CActorUnit>
+    <CActorBeamSimple id="MothershipAttackBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorBeamSimple>
+    <CActorBeamSimple id="MothershipSecondaryAttackBeam">
+        <On Terms="ActorCreation; IsLocalParticipantType Observer; ValidatePlayer FactionTaldarim" Send="SetTintColor 255,0,0"/>
+    </CActorBeamSimple>
+</Catalog>

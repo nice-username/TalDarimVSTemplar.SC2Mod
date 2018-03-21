@@ -1,0 +1,14 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: ModelSwap
+//--------------------------------------------------------------------------------------------------
+// Variable Declarations
+int lib2C2906BD_gv_playerID;
+
+// Trigger Declarations
+trigger lib2C2906BD_gt_AddUpgrades;
+
+// Library Initialization
+void lib2C2906BD_InitVariables ();
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CRequirement id="FactionTaldarim">
+        <EditorCategories value="TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeFactionTaldarimCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="FactionTemplar">
+        <EditorCategories value="TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeFactionTemplarCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+</Catalog>

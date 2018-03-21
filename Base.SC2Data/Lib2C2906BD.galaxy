@@ -1,0 +1,83 @@
+include "TriggerLibs/NativeLib"
+
+include "Lib2C2906BD_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: ModelSwap
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void lib2C2906BD_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Variable Initialization
+bool lib2C2906BD_InitVariables_completed = false;
+
+void lib2C2906BD_InitVariables () {
+    if (lib2C2906BD_InitVariables_completed) {
+        return;
+    }
+
+    lib2C2906BD_InitVariables_completed = true;
+
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: AddUpgrades
+//--------------------------------------------------------------------------------------------------
+bool lib2C2906BD_gt_AddUpgrades_Func (bool testConds, bool runActions) {
+    playergroup auto21EE460F_g;
+    int auto21EE460F_p;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto21EE460F_g = PlayerGroupActive(); 
+    auto21EE460F_p = 1;
+    for ( ; auto21EE460F_p <= PlayerGroupCount(auto21EE460F_g) ; auto21EE460F_p += BoolToInt(lib2C2906BD_gv_playerID == PlayerGroupPlayer(auto21EE460F_g, auto21EE460F_p)) ) {
+        lib2C2906BD_gv_playerID = PlayerGroupPlayer(auto21EE460F_g, auto21EE460F_p);
+        if ((GameAttributePlayerValue("[bnet:local/0.0/337789]1", lib2C2906BD_gv_playerID) == "0002")) {
+            libNtve_gf_SetUpgradeLevelForPlayer(lib2C2906BD_gv_playerID, "FactionTaldarim", 1);
+            UnitGroupLoopBegin(UnitGroup(null, lib2C2906BD_gv_playerID, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                ActorSend(libNtve_gf_MainActorofUnit(UnitGroupLoopCurrent()), libNtve_gf_Signal("Taldarim"));
+            }
+            UnitGroupLoopEnd();
+        }
+        else {
+            libNtve_gf_SetUpgradeLevelForPlayer(lib2C2906BD_gv_playerID, "FactionTemplar", 1);
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib2C2906BD_gt_AddUpgrades_Init () {
+    lib2C2906BD_gt_AddUpgrades = TriggerCreate("lib2C2906BD_gt_AddUpgrades_Func");
+    TriggerAddEventTimeElapsed(lib2C2906BD_gt_AddUpgrades, 0.0625, c_timeGame);
+}
+
+void lib2C2906BD_InitTriggers () {
+    lib2C2906BD_gt_AddUpgrades_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool lib2C2906BD_InitLib_completed = false;
+
+void lib2C2906BD_InitLib () {
+    if (lib2C2906BD_InitLib_completed) {
+        return;
+    }
+
+    lib2C2906BD_InitLib_completed = true;
+
+    lib2C2906BD_InitLibraries();
+    lib2C2906BD_InitVariables();
+    lib2C2906BD_InitTriggers();
+}
+

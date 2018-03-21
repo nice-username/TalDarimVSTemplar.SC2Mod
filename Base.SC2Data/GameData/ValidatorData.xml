@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CValidatorPlayerRequirement id="FactionTaldarim">
+        <WhichPlayer Value="Target"/>
+        <Find value="1"/>
+        <Value value="FactionTaldarim"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="FactionTemplar">
+        <WhichPlayer Value="Target"/>
+        <Find value="1"/>
+        <Value value="FactionTemplar"/>
+    </CValidatorPlayerRequirement>
+</Catalog>

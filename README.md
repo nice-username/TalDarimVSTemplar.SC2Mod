@@ -1,0 +1,1 @@
+# TalDarimVSTemplar.SC2Mod

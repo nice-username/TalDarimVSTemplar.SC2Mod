@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTexture id="TwilightCouncilDarkDiffuse">
+        <File value="Textures\Twilight Council\twilightcouncil_diffuse_dark.dds"/>
+        <Slot value="main.diffuse"/>
+    </CTexture>
+    <CTexture id="TwilightCouncilDarkEmissive">
+        <File value="Textures\Twilight Council\twilightcouncil_emissive_dark.dds"/>
+        <Slot value="main.emissive"/>
+    </CTexture>
+    <CTexture id="TwilightCouncilDarkSpecular">
+        <File value="Textures\Twilight Council\twilightcouncil_specular_dark.dds"/>
+        <Slot value="main.specular"/>
+    </CTexture>
+    <CTexture id="TemplarArchivesDarkDiffuse">
+        <File value="Textures\Templar Archive\templararchives_diffuse_dark.dds"/>
+        <Slot value="main.diffuse"/>
+    </CTexture>
+    <CTexture id="TemplarArchivesDarkEmissive">
+        <File value="Textures\Templar Archive\templararchives_emissive_dark.dds"/>
+        <Slot value="main.emissive"/>
+    </CTexture>
+    <CTexture id="TemplarArchivesDarkSpecular">
+        <File value="Textures\Templar Archive\templararchives_specular_dark.dds"/>
+        <Slot value="main.specular"/>
+    </CTexture>
+    <CTexture id="DarkShrineDarkDiffuse">
+        <File value="Textures\Dark Shrine\darkshrine_diffuse_dark.dds"/>
+        <Slot value="main.diffuse"/>
+    </CTexture>
+    <CTexture id="DarkShrineDarkEmissive">
+        <File value="Textures\Dark Shrine\darkshrine_emissive_dark.dds"/>
+        <Slot value="main.emissive"/>
+    </CTexture>
+    <CTexture id="DarkShrineDarkSpecular">
+        <File value="Textures\Dark Shrine\darkshrine_specular_dark.dds"/>
+        <Slot value="main.specular"/>
+    </CTexture>
+    <CTexture id="PylonDarkDiffuse">
+        <File value="Textures\Pylon\pylon_diffuse_dark.dds"/>
+        <Slot value="campaign.diffuse"/>
+    </CTexture>
+    <CTexture id="PylonDarkSpecular">
+        <File value="Textures\Pylon\pylon_specular_dark.dds"/>
+        <Slot value="campaign.specular"/>
+    </CTexture>
+    <CTexture id="PylonDarkEmissive">
+        <File value="Textures\Pylon\pylon_emissive_dark.dds"/>
+        <Slot value="campaign.emissive"/>
+    </CTexture>
+    <CTexture id="GlowGreen">
+        <File value="Textures\Templar Archive\glow_green3.dds"/>
+        <Slot value="generic01"/>
+    </CTexture>
+    <CTexture id="PulseGreen">
+        <File value="Textures\Twilight Council\Pulse1_Green2.dds"/>
+        <Slot value="generic03"/>
+    </CTexture>
+    <CTexture id="GradRaysGreen">
+        <File value="Textures\Twilight Council\Grad_Rays_Green1.dds"/>
+        <Slot value="generic02"/>
+    </CTexture>
+</Catalog>

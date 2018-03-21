@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CUpgrade id="FactionTaldarim">
+        <LeaderAlias value=""/>
+    </CUpgrade>
+    <CUpgrade id="FactionTemplar">
+        <LeaderAlias value=""/>
+    </CUpgrade>
+</Catalog>
